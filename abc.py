@@ -3,6 +3,10 @@ import requests
 import time
 from streamlit_autorefresh import st_autorefresh
 
+
+# st.set_page_config(page_title="Uptime Monitor", layout="wide")
+st.title("iCubes-Voye Site uptime monitoring")
+
 st_autorefresh(interval=30 * 1000, key="uptime-refresh")
 
 sites = {
@@ -21,9 +25,6 @@ def check_uptime(url):
             return f"DOWN ({response.status_code})", None
     except Exception as e:
         return f"DOWN ({str(e)})", None
-
-st.set_page_config(page_title="Uptime Monitor", layout="wide")
-st.title("iCubes-Voye Site uptime monitoring")
 
 for name, url in sites.items():
     status, latency = check_uptime(url)
