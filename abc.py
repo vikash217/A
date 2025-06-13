@@ -3,6 +3,10 @@ import requests
 import time
 from datetime import datetime
 
+
+# Page setup
+# st.set_page_config(page_title="WooCommerce Uptime Monitor", layout="wide")
+st.title("iCubes-Voye site uptime monitoring")
 st.markdown("<meta http-equiv='refresh' content='30'>", unsafe_allow_html=True)
 
 HEADERS = {
@@ -26,9 +30,7 @@ def check_uptime(url):
     except Exception as e:
         return f"DOWN ({str(e)})", None
 
-# Page setup
-st.set_page_config(page_title="WooCommerce Uptime Monitor", layout="wide")
-st.title("iCubes-Voye site uptime monitoring")
+
 
 st.markdown(f"**Last checked:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
