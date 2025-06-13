@@ -6,7 +6,7 @@ from datetime import datetime
 
 # st.set_page_config(page_title="WooCommerce Uptime Monitor", layout="wide")
 st.title("iCubes-Voye site uptime monitoring")
-st.markdown("<meta http-equiv='refresh' content='30'>", unsafe_allow_html=True)
+st.markdown("<meta http-equiv='refresh' content='120'>", unsafe_allow_html=True)
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; UptimeMonitor/1.0; +https://voyeglobal.com)"
