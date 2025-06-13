@@ -1,9 +1,13 @@
 import streamlit as st
 import requests
 import time
+from streamlit_autorefresh import st_autorefresh
+
+st_autorefresh(interval=30 * 1000, key="uptime-refresh")
 
 sites = {
-    "Main Site": "https:voyeglobal.com"
+    "Main Site": "https://voyeglobal.com",
+   
 }
 
 def check_uptime(url):
@@ -12,14 +16,14 @@ def check_uptime(url):
         response = requests.get(f"{url}/wp-json", timeout=5)
         latency = round(time.time() - start, 2)
         if response.status_code == 200:
-            return "Site is Working Fine", latency
+            return "UP - Site is working fine.", latency
         else:
-            return f"Site is down ({response.status_code})", None
+            return f"DOWN ({response.status_code})", None
     except Exception as e:
-        return f"Site is DOWN ({str(e)})", None
+        return f"DOWN ({str(e)})", None
 
 st.set_page_config(page_title="Uptime Monitor", layout="wide")
-st.title("iCubes - Voye Sites Uptime Mointoring")
+st.title("iCubes-Voye Site uptime monitoring")
 
 for name, url in sites.items():
     status, latency = check_uptime(url)
