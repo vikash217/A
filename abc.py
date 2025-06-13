@@ -4,13 +4,12 @@ import time
 from datetime import datetime
 
 
-# Page setup
 # st.set_page_config(page_title="WooCommerce Uptime Monitor", layout="wide")
 st.title("iCubes-Voye site uptime monitoring")
 st.markdown("<meta http-equiv='refresh' content='30'>", unsafe_allow_html=True)
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; UptimeMonitor/1.0; +https://yourdomain.com)"
+    "User-Agent": "Mozilla/5.0 (compatible; UptimeMonitor/1.0; +https://voyeglobal.com)"
 }
 
 sites = {
